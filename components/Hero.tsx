@@ -5,8 +5,7 @@ export default function Hero() {
 
       <p className="hero__lede">
         New Age Technologies designs and builds world-class consumer apps —
-        fast, private and beautifully simple — across iOS and macOS, under the
-        OAISIS brand.
+        fast, private and beautifully simple — across iOS and macOS.
       </p>
     </section>
   );

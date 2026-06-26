@@ -3,6 +3,11 @@ export type Cta =
   | { type: "appstore"; url: string }
   | { type: "soon" };
 
+export type Legal = {
+  terms: string;
+  privacy: string;
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -14,6 +19,7 @@ export type Product = {
   page: string;
   accent: string;
   cta: Cta;
+  legal?: Legal;
 };
 
 export const products: Product[] = [
@@ -51,5 +57,6 @@ export const products: Product[] = [
     page: "/faike",
     accent: "255, 175, 205",
     cta: { type: "soon" },
+    legal: { terms: "/faike/terms", privacy: "/faike/privacy" },
   },
 ];

@@ -65,6 +65,14 @@ export default function ProductPage({ id }: { id: string }) {
           <div className="product__cta">
             <Cta product={product} />
           </div>
+
+          {product.legal && (
+            <p className="product__legal">
+              <Link href={product.legal.terms}>Terms of Service</Link>
+              <span aria-hidden="true"> · </span>
+              <Link href={product.legal.privacy}>Privacy Policy</Link>
+            </p>
+          )}
         </section>
       </main>
       <Footer />
