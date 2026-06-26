@@ -222,11 +222,11 @@ main {
 }
 
 .nav__mark {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   border-radius: 5px;
-  background: linear-gradient(135deg, #8fb3ff, #b9a8ff 55%, #cfe2ff);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+  object-fit: cover;
+  display: block;
 }
 
 .nav__links {

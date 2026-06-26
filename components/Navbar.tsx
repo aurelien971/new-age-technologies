@@ -2,7 +2,7 @@ export default function Navbar() {
   return (
     <header className="nav">
       <a className="nav__brand" href="#top">
-        <span className="nav__mark" aria-hidden="true" />
+        <img className="nav__mark" src="/nat-icon.png" alt="New Age Technologies" />
         New Age Technologies
       </a>
       <nav className="nav__links">
