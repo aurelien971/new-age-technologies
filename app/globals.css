@@ -549,6 +549,10 @@ main {
   transition: color 0.2s, border-color 0.2s;
 }
 
+.footer__btn {
+  margin-top: 18px;
+}
+
 .footer__mail:hover {
   color: var(--ink);
   border-color: var(--ink);

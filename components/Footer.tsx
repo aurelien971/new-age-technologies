@@ -4,16 +4,14 @@ export default function Footer() {
       <div className="footer__panel">
         <div className="footer__cta">
           <p className="footer__lede">Have an idea worth shipping?</p>
-          <a className="footer__mail" href="mailto:hello@oaisis.co.uk">
-            hello@oaisis.co.uk
+          <a className="card__btn footer__btn" href="mailto:fefeapphello@gmail.com">
+            Write to me now
           </a>
         </div>
 
         <div className="footer__meta" id="studio">
           <span className="footer__name">New Age Technologies Ltd</span>
-          <span className="footer__sub">
-            Independent app studio · United Kingdom
-          </span>
+          <span className="footer__sub">Independent app studio · United Kingdom</span>
         </div>
       </div>
 
