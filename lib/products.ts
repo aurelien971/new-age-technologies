@@ -56,7 +56,7 @@ export const products: Product[] = [
     icon: "/icon-faike.png",
     page: "/faike",
     accent: "255, 175, 205",
-    cta: { type: "soon" },
+    cta: { type: "appstore", url: "https://apps.apple.com/us/app/faike-ai-detector/id6782379468" },
     legal: { terms: "/faike/terms", privacy: "/faike/privacy" },
   },
 ];
