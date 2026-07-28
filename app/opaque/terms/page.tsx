@@ -125,7 +125,7 @@ export default function Page() {
       <p>
         New Age Technologies Ltd., 40 Ossington Street, London W2 4LY, United Kingdom
         <br />
-        Email: <a href="mailto:nicolle.aurelien@gmail.com">nicolle.aurelien@gmail.com</a>
+        Email: <a href="mailto:fefeapphello@gmail.com">fefeapphello@gmail.com</a>
       </p>
     </LegalPage>
   );
