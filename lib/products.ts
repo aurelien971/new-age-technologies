@@ -59,4 +59,16 @@ export const products: Product[] = [
     cta: { type: "appstore", url: "https://apps.apple.com/us/app/faike-ai-detector/id6782379468" },
     legal: { terms: "/faike/terms", privacy: "/faike/privacy" },
   },
+  {
+    id: "opaque",
+    name: "Opaque",
+    tagline: "AI photo filters, studio-grade.",
+    description: "Transform your photos with 70+ AI filters — portraits, pets, places and more.",
+    platform: "iOS",
+    icon: "/icon-opaque.png",
+    page: "/opaque",
+    accent: "165, 195, 250",
+    cta: { type: "soon" },
+    legal: { terms: "/opaque/terms", privacy: "/opaque/privacy" },
+  },
 ];

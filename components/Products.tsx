@@ -87,10 +87,6 @@ function ProductCard({ product }: { product: Product }) {
 export default function Products() {
   return (
     <section className="products" id="products">
-      <div className="section-head">
-        <h2 className="section-title">What we&apos;ve released</h2>
-      </div>
-
       <div className="products__grid">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
