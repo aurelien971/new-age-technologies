@@ -79,7 +79,7 @@ export const products: Product[] = [
     tagline: "The studio behind the apps.",
     description: "Generate, edit and ship AI creative work from one workspace.",
     platform: "Web",
-    icon: "/oaisis-logo.png",
+    icon: "/icon-oaisislabs.svg",
     page: "/labs",
     accent: "200, 180, 255",
     cta: { type: "visit", url: "https://www.oaisislabs.com" },
