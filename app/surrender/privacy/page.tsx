@@ -90,16 +90,15 @@ export default function Page() {
         analytics with developers in your iOS settings.
       </p>
 
-      <h2>5. App Tracking Transparency</h2>
+      <h2>5. No Tracking, and No Advertising Identifier</h2>
       <p>
-        The App asks, once, whether you allow tracking. This is used to measure which of our posts or
-        adverts led to an install. If you decline, the App works identically and no advertising
-        identifier is collected. You can change your answer at any time in iOS Settings → Privacy
-        &amp; Security → Tracking.
+        Surrender does not track you. It does not collect the advertising identifier
+        (IDFA), it does not ask for tracking permission, it does not link anything about you to
+        data from other companies, and it shares nothing with advertising networks or data
+        brokers.
       </p>
       <p>
-        Nothing you write is ever used for advertising, ever linked to an advertising identifier, or
-        ever shared with an advertising network.
+        Nothing you write is ever used for advertising, and there is no advertising in the App.
       </p>
 
       <h2>6. Why We Are Allowed To Process This</h2>
@@ -112,8 +111,8 @@ export default function Page() {
           understand aggregate usage
         </li>
         <li>
-          <strong>Consent</strong> — for notifications, and for tracking under App Tracking
-          Transparency, each of which you can withdraw at any time
+          <strong>Consent</strong> — for notifications, which you can withdraw at any time in
+          iOS Settings
         </li>
       </ul>
 
