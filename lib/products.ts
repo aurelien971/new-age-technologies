@@ -110,6 +110,52 @@ export const products: Product[] = [
     ],
   },
   {
+    id: "surrender",
+    name: "Surrender",
+    tagline: "Daily walk with Jesus.",
+    description: "Name the one thing you would rather not say, and get seven nights built around it.",
+    platform: "iOS",
+    icon: "/icon-surrender.png",
+    page: "/surrender",
+    accent: "217, 164, 65",
+    cta: { type: "soon" },
+    legal: { terms: "/surrender/terms", privacy: "/surrender/privacy" },
+    shotKind: "phone",
+    lead:
+      "Write one honest sentence about the thing you keep going back to. Surrender writes you seven days out of it \u2014 one devotional, one prayer and one verse a night, and a check-in that asks only for the truth.",
+    sections: [
+      {
+        title: "The week comes out of your own sentence",
+        body:
+          "There is no library to browse. You name the thing \u2014 the drinking, the scrolling, the temper, the distance \u2014 and the app writes a seven-day path around that, in the language of that struggle. Nine themes, seven movements each, and none of it leaves your phone.",
+      },
+      {
+        title: "One day a night, and no bingeing",
+        body:
+          "A day unlocks per calendar day and cannot be rushed. The night rolls over at four in the morning, so a one o\u2019clock check-in still counts for the night before. It is a practice rather than a course, and it is built to be finished slowly.",
+      },
+      {
+        title: "The streak counts honesty, not perfection",
+        body:
+          "The nightly question is where your arrow went today, and every answer keeps the run alive \u2014 including \u201cit went wide\u201d. Nothing is lost for admitting a bad night. That is the single decision the whole app is built around, and the check-in is never behind the paywall.",
+      },
+      {
+        title: "Read the prayer out loud",
+        body:
+          "Each day ends with a written prayer that lights one word at a time, at the pace of a voice rather than a screen. Most people have never prayed aloud on their own. It turns out that is the part that changes things.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17 or later" },
+      { label: "Price", value: "Free, with an optional subscription" },
+      { label: "Scripture", value: "World English Bible (public domain)" },
+      { label: "Your writing", value: "Stored on your device only" },
+      { label: "Languages", value: "English" },
+    ],
+    caveat:
+      "Surrender is a devotional habit, not therapy, medical treatment or pastoral care. If you are in crisis, please contact a doctor or a crisis line rather than an app.",
+  },
+  {
     id: "faike",
     name: "FAIKE",
     tagline: "AI Detector.",
