@@ -4,10 +4,9 @@ export type Cta =
   | { type: "visit"; url: string }
   | { type: "soon" };
 
-export type Legal = {
-  terms: string;
-  privacy: string;
-};
+export type Legal = { terms: string; privacy: string };
+export type Fact = { label: string; value: string };
+export type Section = { title: string; body: string };
 
 export type Product = {
   id: string;
@@ -21,6 +20,15 @@ export type Product = {
   accent: string;
   cta: Cta;
   legal?: Legal;
+  /** Screenshots pulled from the live App Store listing, or captured from the site. */
+  shots?: string[];
+  shotKind?: "phone" | "wide";
+  /** Opening paragraph of the product page. */
+  lead?: string;
+  sections?: Section[];
+  facts?: Fact[];
+  /** An honest caveat shown on the page, where one applies. */
+  caveat?: string;
 };
 
 export const products: Product[] = [
@@ -35,6 +43,32 @@ export const products: Product[] = [
     page: "/transcriber",
     accent: "150, 180, 255",
     cta: { type: "download", url: "https://www.oaisis.co.uk/api/download" },
+    shots: ["/shots/transcriber/1.png"],
+    shotKind: "wide",
+    lead:
+      "Hold a key. Say the thing. The text appears wherever your cursor already was — in Slack, in Mail, in a code editor, in a document you never had to leave.",
+    sections: [
+      {
+        title: "No window to switch to",
+        body:
+          "Most dictation tools make you go somewhere, speak, then copy the result back. Transcriber writes straight into whatever app has focus. The step where you paste is the step it removes, and it turns out that was most of the friction.",
+      },
+      {
+        title: "Say what you want done to it",
+        body:
+          "Select any text, hold the key, and give an instruction rather than dictation. Make this shorter. Turn it into bullets. Reply politely saying no. It rewrites the selection in place — the same gesture, a different intent.",
+      },
+      {
+        title: "The maths behind the claim",
+        body:
+          "Comfortable speech runs at roughly 150 words a minute. Most people type at around 40. That gap is the whole product: not a novelty, just the fastest input device you already own, pointed at every app instead of one.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "macOS" },
+      { label: "Price", value: "Free, with a Pro tier" },
+      { label: "Install", value: "Direct download" },
+    ],
   },
   {
     id: "cleaner",
@@ -47,6 +81,33 @@ export const products: Product[] = [
     page: "/cleaner",
     accent: "150, 235, 195",
     cta: { type: "appstore", url: "https://apps.apple.com/us/app/oaisis-cleaner/id6758674358" },
+    shots: ["/shots/cleaner/1.jpg", "/shots/cleaner/2.jpg", "/shots/cleaner/3.jpg", "/shots/cleaner/4.jpg"],
+    shotKind: "phone",
+    lead:
+      "A full phone is rarely full of photos. It is full of the same photo, eleven times — the burst you never trimmed, the three attempts at the same view, the screenshot you took twice.",
+    sections: [
+      {
+        title: "It finds what you would never scroll back to find",
+        body:
+          "Exact copies are easy. The useful part is near-duplicates: frames from the same burst, shots a second apart, the same receipt photographed twice. Cleaner groups them so you are choosing between five versions of one moment, not scrolling four years of camera roll.",
+      },
+      {
+        title: "Nothing disappears without you seeing it",
+        body:
+          "Every group is shown before anything is removed, with a suggested keeper already selected. You override it or you accept it. There is no silent cleanup, because the one thing worse than a full phone is a phone missing a photo you wanted.",
+      },
+      {
+        title: "Biggest wins first",
+        body:
+          "Large videos are sorted to the top, because thirty seconds of 4K costs more than a hundred screenshots. You get the space back in the first minute rather than the last.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17.4 or later" },
+      { label: "Size", value: "15 MB" },
+      { label: "Price", value: "Free" },
+      { label: "Version", value: "1.0" },
+    ],
   },
   {
     id: "faike",
@@ -59,6 +120,34 @@ export const products: Product[] = [
     accent: "255, 175, 205",
     cta: { type: "appstore", url: "https://apps.apple.com/us/app/faike-ai-detector/id6782379468" },
     legal: { terms: "/faike/terms", privacy: "/faike/privacy" },
+    shots: ["/shots/faike/1.jpg", "/shots/faike/2.jpg", "/shots/faike/3.jpg", "/shots/faike/4.jpg"],
+    shotKind: "phone",
+    lead:
+      "Point it at an image, a block of text, or a claim somebody forwarded you. It tells you how much of it holds up — and shows you the working.",
+    sections: [
+      {
+        title: "Three different questions",
+        body:
+          "An image check asks whether a picture was generated. A text check asks whether a passage was written by a model. A fact check asks whether a claim is actually true, and goes out to live sources to find out. They are separate problems, so they are separate answers.",
+      },
+      {
+        title: "A score, and the sources behind it",
+        body:
+          "Every result comes back as a confidence score rather than a yes or no, and fact checks list the sources consulted. You can disagree with the conclusion and still see what it read to get there.",
+      },
+      {
+        title: "It admits when it does not know",
+        body:
+          "Roughly a third of real results come back as Uncertain. That is deliberate. A detector that always produces a confident answer is not detecting anything — it is guessing with conviction, which is worse than saying nothing.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 18.6 or later" },
+      { label: "Size", value: "31 MB" },
+      { label: "Price", value: "Free, with in-app purchases" },
+      { label: "Version", value: "1.2.1 · September 2026" },
+      { label: "Languages", value: "3" },
+    ],
   },
   {
     id: "opaque",
@@ -71,17 +160,75 @@ export const products: Product[] = [
     accent: "165, 195, 250",
     cta: { type: "appstore", url: "https://apps.apple.com/gb/app/opaque-ai-photo-editor/id6793271006" },
     legal: { terms: "/opaque/terms", privacy: "/opaque/privacy" },
+    shots: [
+      "/shots/opaque/1.jpg", "/shots/opaque/2.jpg", "/shots/opaque/3.jpg",
+      "/shots/opaque/4.jpg", "/shots/opaque/5.jpg", "/shots/opaque/6.jpg",
+    ],
+    shotKind: "phone",
+    lead:
+      "Pick a photo. Pick a look. That is the whole interface. Everything difficult about studio lighting, colour grading and retouching sits behind a single tap.",
+    sections: [
+      {
+        title: "Seventy-odd looks, organised by what you shot",
+        body:
+          "Portraits, pets, places, cinematic grades, studio lighting setups. They are grouped by subject rather than by technique, because you know what you photographed and you do not necessarily know that you want Rembrandt lighting.",
+      },
+      {
+        title: "Tools for the things a filter cannot fix",
+        body:
+          "Magic Eraser takes out the person who walked into frame. Blur Lab handles depth after the fact. Custom Edit takes a written instruction when none of the presets is quite the thing you meant.",
+      },
+      {
+        title: "Applied to your photo, not approximated",
+        body:
+          "Each look is a prompt run against your actual image rather than an overlay dropped on top. That is why a portrait filter respects the face and a landscape filter respects the sky — and why it takes a few seconds rather than none.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17.6 or later" },
+      { label: "Size", value: "48 MB" },
+      { label: "Price", value: "Free, with in-app purchases" },
+      { label: "Version", value: "1.02 · September 2026" },
+    ],
   },
   {
     id: "labs",
     name: "OAISIS Labs",
     brand: "OAISIS",
     tagline: "The studio behind the apps.",
-    description: "Generate, edit and ship AI creative work from one workspace.",
+    description: "Schedule a month of TikTok videos. They post themselves.",
     platform: "Web",
     icon: "/icon-oaisislabs.svg",
     page: "/labs",
     accent: "200, 180, 255",
     cta: { type: "visit", url: "https://www.oaisislabs.com" },
+    shots: ["/shots/labs/1.png"],
+    shotKind: "wide",
+    lead:
+      "Empty your camera roll into it on a Sunday. Choose the hours you want to post. It publishes for the rest of the month while you get on with something else.",
+    sections: [
+      {
+        title: "Upload everything at once",
+        body:
+          "Drop in a week or a month of footage in one go — videos and photo carousels together. Captions, sounds and hashtags travel with each item, so nothing needs revisiting later.",
+      },
+      {
+        title: "A calendar you set once",
+        body:
+          "Pick a few good times. Every video you upload from then on slots itself into the next free one. You are scheduling a habit rather than scheduling posts.",
+      },
+      {
+        title: "It tells you what worked, in words",
+        body:
+          "Each post reports back afterwards: what people watched, what they skipped, and which day and hour did best. No dashboard to interpret — a sentence telling you when to post next.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "Web" },
+      { label: "Price", value: "Free while in beta" },
+      { label: "TikTok", value: "Approved 27 August 2026" },
+    ],
+    caveat:
+      "The Direct Post audit is still pending with TikTok, so scheduled items currently arrive as drafts in your TikTok inbox rather than publishing straight to your profile.",
   },
 ];

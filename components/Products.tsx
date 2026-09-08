@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import type { CSSProperties, PointerEvent } from "react";
 import { useRef } from "react";
 import Image from "next/image";
@@ -63,6 +65,9 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div ref={ref} className="card" style={{ "--accent": product.accent } as CSSProperties} onPointerMove={onMove} onPointerLeave={reset}>
+      {/* The whole box is the link; the CTA sits above it so it still wins a click. */}
+      <Link className="card__hit" href={product.page} aria-label={`${product.name} — read more`} />
+
       <div className="card__head">
         <Image className="card__icon" src={product.icon} alt={`${product.name} icon`} width={60} height={60} />
         <div className="card__tags">
@@ -83,9 +88,9 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className="card__actions">
         <Cta product={product} />
-        <a className="card__page" href={product.page}>
-          Learn more<span aria-hidden="true"> →</span>
-        </a>
+        <span className="card__page">
+          Read more<span aria-hidden="true"> →</span>
+        </span>
       </div>
     </div>
   );

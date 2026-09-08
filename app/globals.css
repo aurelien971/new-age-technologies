@@ -803,3 +803,100 @@ a:focus-visible,
 .legal__body a:hover {
   border-color: var(--brand);
 }
+/* ── Whole-card link ─────────────────────────────────────────────────────── */
+.card { position: relative; }
+.card__hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.card__head,
+.card__body { position: relative; z-index: 0; }
+/* The CTA has to beat the overlay, or the App Store button stops working. */
+.card__actions { position: relative; z-index: 2; }
+.card__page { pointer-events: none; }
+.card:hover .card__page { text-decoration: underline; }
+
+/* ── Product page: screenshots ───────────────────────────────────────────── */
+.shots { max-width: 1120px; margin: 8px auto 0; padding: 0 24px; }
+.shots__rail {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 12px 2px 22px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.shots__rail::-webkit-scrollbar { height: 6px; }
+.shots__rail::-webkit-scrollbar-thumb { background: rgba(0,0,0,.16); border-radius: 99px; }
+.shot { margin: 0; flex: 0 0 auto; scroll-snap-align: center; }
+.shot img {
+  display: block;
+  height: auto;
+  border-radius: 22px;
+  border: 1px solid rgba(20, 20, 30, 0.10);
+  box-shadow: 0 18px 44px rgba(20, 24, 40, 0.13);
+  background: #fff;
+}
+.shots--phone .shot img { width: 244px; border-radius: 26px; }
+.shots--wide  .shot img { width: min(820px, 88vw); border-radius: 16px; }
+.shots--wide .shots__rail { justify-content: center; }
+
+/* ── Product page: article ───────────────────────────────────────────────── */
+.article { max-width: 680px; margin: 26px auto 0; padding: 0 24px; }
+.article__block + .article__block { margin-top: 30px; }
+.article__block h2 {
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+.article__block p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.68;
+  color: rgba(28, 30, 42, 0.74);
+  text-wrap: pretty;
+}
+.product__lead {
+  max-width: 620px;
+  margin: 14px auto 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(28, 30, 42, 0.78);
+  text-wrap: pretty;
+}
+.product__caveat {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(245, 190, 90, 0.13);
+  border: 1px solid rgba(200, 150, 40, 0.22);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(70, 55, 15, 0.86);
+}
+
+/* ── Product page: facts ─────────────────────────────────────────────────── */
+.facts { max-width: 680px; margin: 34px auto 0; padding: 0 24px; }
+.facts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 1px;
+  margin: 0;
+  background: rgba(20, 20, 30, 0.08);
+  border: 1px solid rgba(20, 20, 30, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.fact { background: #fff; padding: 14px 16px; }
+.fact dt {
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(28, 30, 42, 0.45);
+}
+.fact dd { margin: 5px 0 0; font-size: 14.5px; font-weight: 600; }
+
+.product--tail { padding-top: 34px; padding-bottom: 8px; }
