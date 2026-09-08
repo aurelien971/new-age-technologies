@@ -17,6 +17,7 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://oaisis.co.uk"),
   title: "New Age Technologies — Independent app studio",
+  icons: { icon: "/icon.png", apple: "/apple-icon.png" },
   description:
     "New Age Technologies is a small UK mobile studio crafting calm, useful iOS apps under the OAISIS brand. Makers of OAISIS Transcriber, OAISIS Cleaner and FAIKE.",
   openGraph: {
