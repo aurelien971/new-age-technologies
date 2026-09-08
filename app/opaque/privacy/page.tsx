@@ -21,22 +21,39 @@ export default function Page() {
       <p>
         When you apply an AI filter or a custom edit, the photo you select is sent to third-party AI
         services — OpenAI and xAI — for processing, and the edited result is returned to your device.
-        We do not store your original or edited photos on our servers. Edited results are saved
-        locally on your device and, if you choose, to your Apple Photos library.
+        Edited results are saved locally on your device and, if you choose, to your Apple Photos
+        library. To keep the service safe, a reduced-size copy of edited photos may be retained on
+        our systems (Google Firebase) for up to 30 days for abuse-prevention and content-moderation
+        review, after which it is deleted. You can
+        request deletion of this data at any time by contacting us at the address below.
       </p>
-      <h3>2.2 Custom Edit Prompts</h3>
+      <h3>2.2 Face Data</h3>
+      <p>
+        Photos you choose to edit may include faces. Opaque does not perform facial recognition and
+        does not create face templates, faceprints, or any biometric identifiers, and never uses face
+        data to identify or track any person. Photos containing faces are transmitted securely to our
+        AI processing providers — OpenAI and xAI — solely to generate the edit you requested, and are
+        not used by us to train AI models. Edited results are stored on your device. A reduced-size
+        copy of edited photos, which may include faces, is retained on our systems (Google Firebase)
+        for up to 30 days solely for abuse-prevention and content-moderation review, after which it
+        is automatically deleted. Face data is never sold and never shared with any third party other
+        than the processing providers named above. You can delete this data at any time by deleting
+        your account in the App (Settings &rarr; Delete Account) or by contacting us at the address
+        below.
+      </p>
+      <h3>2.3 Custom Edit Prompts</h3>
       <p>
         If you type a custom editing instruction, the text of that instruction is stored on our
         systems (Google Firebase) so we can improve the App&apos;s filters and features. Please do not
         include personal information in your prompts.
       </p>
-      <h3>2.3 Account Information</h3>
+      <h3>2.4 Account Information</h3>
       <p>
         The App uses Firebase Authentication to create an account identifier for you (for example via
         Sign in with Apple). We store your account identifier and, if you provide them during
         onboarding, optional answers such as how you intend to use the App and how you heard about it.
       </p>
-      <h3>2.4 Usage and Analytics Data</h3>
+      <h3>2.5 Usage and Analytics Data</h3>
       <p>
         We collect usage data — such as which filters you view, apply, bookmark, and save, session
         counts, generation success rates and processing times, paywall interactions, game scores, and
@@ -44,7 +61,7 @@ export default function Page() {
         it. This data is stored in Google Firebase and associated with your account identifier. We do
         not use this data to track you across other companies&apos; apps or websites.
       </p>
-      <h3>2.5 Subscription Information</h3>
+      <h3>2.6 Subscription Information</h3>
       <p>
         Payments are processed entirely by Apple through the App Store. We do not collect, store, or
         have access to your payment details, credit card information, or Apple ID. We record which

@@ -29,6 +29,13 @@ function Cta({ product }: { product: Product }) {
       </a>
     );
   }
+  if (product.cta.type === "visit") {
+    return (
+      <a className="card__btn card__btn--store" href={product.cta.url} target="_blank" rel="noreferrer">
+        Visit
+      </a>
+    );
+  }
   return <span className="card__btn card__btn--soon">Coming soon</span>;
 }
 

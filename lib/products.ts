@@ -1,6 +1,7 @@
 export type Cta =
   | { type: "download"; url: string }
   | { type: "appstore"; url: string }
+  | { type: "visit"; url: string }
   | { type: "soon" };
 
 export type Legal = {
@@ -68,7 +69,19 @@ export const products: Product[] = [
     icon: "/icon-opaque.png",
     page: "/opaque",
     accent: "165, 195, 250",
-    cta: { type: "soon" },
+    cta: { type: "appstore", url: "https://apps.apple.com/gb/app/opaque-ai-photo-editor/id6793271006" },
     legal: { terms: "/opaque/terms", privacy: "/opaque/privacy" },
+  },
+  {
+    id: "labs",
+    name: "OAISIS Labs",
+    brand: "OAISIS",
+    tagline: "The studio behind the apps.",
+    description: "Generate, edit and ship AI creative work from one workspace.",
+    platform: "Web",
+    icon: "/oaisis-logo.png",
+    page: "/labs",
+    accent: "200, 180, 255",
+    cta: { type: "visit", url: "https://www.oaisislabs.com" },
   },
 ];
