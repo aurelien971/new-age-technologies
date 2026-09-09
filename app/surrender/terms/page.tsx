@@ -181,7 +181,70 @@ export default function Page() {
         force and effect.
       </p>
 
-      <h2>17. Contact Us</h2>
+      <h2>17. Apple-Required Terms</h2>
+      <p>
+        Apple requires the following where an app is licensed through the App Store. These terms sit
+        alongside the rest of this agreement.
+      </p>
+      <ul>
+        <li>
+          <strong>Acknowledgement.</strong> This agreement is between you and New Age Technologies
+          Ltd. only, and not with Apple. We, not Apple, are solely responsible for the App and its
+          content.
+        </li>
+        <li>
+          <strong>Scope of licence.</strong> The licence granted to you is a non-transferable licence
+          to use the App on any Apple-branded products that you own or control, as permitted by the
+          Usage Rules in the Apple Media Services Terms and Conditions.
+        </li>
+        <li>
+          <strong>Maintenance and support.</strong> We are solely responsible for providing any
+          maintenance and support for the App. Apple has no obligation to furnish any maintenance or
+          support services.
+        </li>
+        <li>
+          <strong>Warranty.</strong> We are solely responsible for any product warranties, whether
+          express or implied by law, to the extent not effectively disclaimed. If the App fails to
+          conform to any applicable warranty, you may notify Apple, and Apple will refund the
+          purchase price of the App to you. To the maximum extent permitted by applicable law, Apple
+          has no other warranty obligation whatsoever with respect to the App.
+        </li>
+        <li>
+          <strong>Product claims.</strong> We, not Apple, are responsible for addressing any claims
+          relating to the App or your possession and use of it, including product liability claims,
+          any claim that the App fails to conform to any legal or regulatory requirement, and claims
+          arising under consumer protection, privacy or similar legislation.
+        </li>
+        <li>
+          <strong>Intellectual property.</strong> In the event of any third-party claim that the App
+          or your possession and use of it infringes that third party&apos;s intellectual property
+          rights, we, not Apple, are solely responsible for the investigation, defence, settlement
+          and discharge of that claim.
+        </li>
+        <li>
+          <strong>Legal compliance.</strong> You represent and warrant that you are not located in a
+          country subject to a U.S. Government embargo or designated as a &quot;terrorist
+          supporting&quot; country, and that you are not listed on any U.S. Government list of
+          prohibited or restricted parties.
+        </li>
+        <li>
+          <strong>Third-party terms.</strong> You must comply with any applicable third-party terms
+          of agreement when using the App.
+        </li>
+        <li>
+          <strong>Third-party beneficiary.</strong> Apple and Apple&apos;s subsidiaries are
+          third-party beneficiaries of this agreement, and upon your acceptance of these Terms Apple
+          will have the right (and will be deemed to have accepted the right) to enforce this
+          agreement against you as a third-party beneficiary.
+        </li>
+        <li>
+          <strong>Contact for questions and complaints.</strong> New Age Technologies Ltd., United
+          Kingdom &mdash;{" "}
+          <a href="mailto:fefeapphello@gmail.com">fefeapphello@gmail.com</a>.
+        </li>
+      </ul>
+
+      <h2>18. Contact Us</h2>
       <p>If you have questions about these Terms, contact us at:</p>
       <p>
         New Age Technologies Ltd., United Kingdom
