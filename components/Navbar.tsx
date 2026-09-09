@@ -1,22 +1,15 @@
-import Link from "next/link";
-
 export default function Navbar() {
   return (
     <header className="nav">
-      <div className="wrap nav__in">
-        <Link className="nav__brand" href="/">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="nav__mark" src="/nat-icon.png" alt="" />
-          <span>New Age Technologies</span>
-        </Link>
-        <nav className="nav__links">
-          <Link href="/#work">Work</Link>
-          <Link href="/#studio" data-secondary>Studio</Link>
-          <a className="nav__cta" href="mailto:fefeapphello@gmail.com">
-            Get in touch
-          </a>
-        </nav>
-      </div>
+      <a className="nav__brand" href="#top">
+        <img className="nav__mark" src="/nat-icon.png" alt="New Age Technologies" />
+        New Age Technologies
+      </a>
+      <nav className="nav__links">
+        <a href="#products">Apps</a>
+        <a href="#studio">Studio</a>
+        <a className="nav__cta" href="#contact">Get in touch</a>
+      </nav>
     </header>
   );
 }

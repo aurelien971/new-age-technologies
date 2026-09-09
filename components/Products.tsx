@@ -1,27 +1,31 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+
 import type { CSSProperties, PointerEvent } from "react";
-import Reveal from "@/components/Reveal";
+import { useRef } from "react";
+import Image from "next/image";
 import { products, type Product } from "@/lib/products";
 
 function AppleMark() {
   return (
-    <svg viewBox="0 0 18 18" width="13" height="13" fill="currentColor" aria-hidden="true">
-      <path d="M12.4 9.6c0-1.7 1.4-2.5 1.4-2.6-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.2-.6c-1.1 0-2.2.7-2.7 1.7-1.2 2-.3 5 .8 6.6.6.8 1.2 1.7 2.1 1.7.8 0 1.1-.5 2.1-.5s1.2.5 2.1.5c.9 0 1.4-.8 2-1.6.6-.9.8-1.8.9-1.8-.1 0-1.6-.6-1.6-2.4zM10.8 4.3c.5-.6.8-1.4.7-2.2-.7 0-1.5.5-2 1.1-.4.5-.8 1.3-.7 2.1.8.1 1.6-.4 2-1z" />
+    <svg viewBox="0 0 384 512" width="13" height="13" fill="currentColor" aria-hidden="true">
+      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
     </svg>
   );
 }
 
 function Cta({ product }: { product: Product }) {
   if (product.cta.type === "download") {
-    return <a className="chip chip--go" href={product.cta.url}>Download</a>;
+    return (
+      <a className="card__btn" href={product.cta.url}>
+        Download now
+      </a>
+    );
   }
   if (product.cta.type === "appstore") {
     return (
-      <a className="chip chip--go" href={product.cta.url} target="_blank" rel="noreferrer">
+      <a className="card__btn card__btn--store" href={product.cta.url} target="_blank" rel="noreferrer">
         <AppleMark />
         App Store
       </a>
@@ -29,29 +33,27 @@ function Cta({ product }: { product: Product }) {
   }
   if (product.cta.type === "visit") {
     return (
-      <a className="chip chip--go" href={product.cta.url} target="_blank" rel="noreferrer">
+      <a className="card__btn card__btn--store" href={product.cta.url} target="_blank" rel="noreferrer">
         Visit
       </a>
     );
   }
-  return <span className="chip chip--soon">Coming soon</span>;
+  return <span className="card__btn card__btn--soon">Coming soon</span>;
 }
 
-function Card({ product }: { product: Product }) {
-  const ref = useRef<HTMLElement>(null);
+function ProductCard({ product }: { product: Product }) {
+  const ref = useRef<HTMLDivElement>(null);
 
-  const onMove = (e: PointerEvent<HTMLElement>) => {
+  const onMove = (e: PointerEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width;
-    const py = (e.clientY - r.top) / r.height;
-    el.style.setProperty("--mx", `${(px * 100).toFixed(2)}%`);
-    el.style.setProperty("--my", `${(py * 100).toFixed(2)}%`);
-    // Tilt stays under 4deg. Past that it stops reading as a surface catching
-    // light and starts reading as a novelty.
-    el.style.setProperty("--ry", `${((px - 0.5) * 7).toFixed(2)}deg`);
-    el.style.setProperty("--rx", `${((0.5 - py) * 5).toFixed(2)}deg`);
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty("--rx", `${(py * -5).toFixed(2)}deg`);
+    el.style.setProperty("--ry", `${(px * 7).toFixed(2)}deg`);
+    el.style.setProperty("--gx", `${(px * 80 + 50).toFixed(1)}%`);
+    el.style.setProperty("--gy", `${(py * 80 + 50).toFixed(1)}%`);
   };
 
   const reset = () => {
@@ -62,62 +64,45 @@ function Card({ product }: { product: Product }) {
   };
 
   return (
-    <article
-      ref={ref}
-      className="card"
-      style={{ "--accent": product.accent } as CSSProperties}
-      onPointerMove={onMove}
-      onPointerLeave={reset}
-    >
+    <div ref={ref} className="card" style={{ "--accent": product.accent } as CSSProperties} onPointerMove={onMove} onPointerLeave={reset}>
+      {/* The whole box is the link; the CTA sits above it so it still wins a click. */}
       <Link className="card__hit" href={product.page} aria-label={`${product.name} — read more`} />
-      <span className="card__sheen" aria-hidden="true" />
-      <span className="card__glow" aria-hidden="true" />
 
-      <div className="card__top">
-        <span className="card__iconwrap">
-          <Image className="card__icon" src={product.icon} alt="" width={112} height={112} />
-        </span>
-        <span className="card__tags">
-          {product.brand && <span className="chip chip--brand">{product.brand}</span>}
-          <span className="chip">{product.platform}</span>
-        </span>
+      <div className="card__head">
+        <Image className="card__icon" src={product.icon} alt={`${product.name} icon`} width={60} height={60} />
+        <div className="card__tags">
+          {product.brand && (
+            <span className="card__oaisis" title={product.brand}>
+              <img src="/oaisis-logo.png" alt={product.brand} />
+            </span>
+          )}
+          <span className="card__platform">{product.platform}</span>
+        </div>
       </div>
 
-      <div className="card__mid">
+      <div className="card__body">
         <h3 className="card__name">{product.name}</h3>
-        <p className="card__tag">{product.tagline}</p>
+        <p className="card__tagline">{product.tagline}</p>
         <p className="card__desc">{product.description}</p>
       </div>
 
-      <div className="card__foot">
+      <div className="card__actions">
         <Cta product={product} />
-        <span className="card__go" aria-hidden="true">
-          Read more
-          <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.6">
-            <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+        <span className="card__page">
+          Read more<span aria-hidden="true"> →</span>
         </span>
       </div>
-    </article>
+    </div>
   );
 }
 
 export default function Products() {
   return (
-    <section className="work" id="work">
-      <div className="wrap">
-        <div className="work__head">
-          <span className="label">Selected work</span>
-          <span className="label">{String(products.length).padStart(2, "0")} shipped</span>
-        </div>
-
-        <div className="work__grid">
-          {products.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 3) * 90 + Math.floor(i / 3) * 40}>
-              <Card product={p} />
-            </Reveal>
-          ))}
-        </div>
+    <section className="products" id="products">
+      <div className="products__grid">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
       </div>
     </section>
   );

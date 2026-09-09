@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Field from "@/components/Field";
+import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Reveal from "@/components/Reveal";
 import { products, type Product } from "@/lib/products";
 
 function AppleMark() {
@@ -17,11 +16,11 @@ function AppleMark() {
 
 function Cta({ product }: { product: Product }) {
   if (product.cta.type === "download") {
-    return <a className="btn" href={product.cta.url}>Download now</a>;
+    return <a className="card__btn" href={product.cta.url}>Download now</a>;
   }
   if (product.cta.type === "appstore") {
     return (
-      <a className="btn" href={product.cta.url} target="_blank" rel="noreferrer">
+      <a className="card__btn" href={product.cta.url} target="_blank" rel="noreferrer">
         <AppleMark />
         Download on the App Store
       </a>
@@ -29,12 +28,12 @@ function Cta({ product }: { product: Product }) {
   }
   if (product.cta.type === "visit") {
     return (
-      <a className="btn" href={product.cta.url} target="_blank" rel="noreferrer">
+      <a className="card__btn card__btn--store" href={product.cta.url} target="_blank" rel="noreferrer">
         Open OAISIS Labs
       </a>
     );
   }
-  return <span className="btn btn--ghost">Coming soon</span>;
+  return <span className="card__btn card__btn--soon">Coming soon</span>;
 }
 
 export default function ProductPage({ id }: { id: string }) {
@@ -46,109 +45,94 @@ export default function ProductPage({ id }: { id: string }) {
 
   return (
     <>
-      <Field />
+      <Background />
       <Navbar />
       <main>
         <section className="product">
-          <div className="wrap">
-            <Link className="product__back" href="/#work">
-              ← All work
-            </Link>
+          <Link className="product__back" href="/#products">
+            <span aria-hidden="true">← </span>All apps
+          </Link>
 
-            {/* One grid for the whole page: the icon hangs in the left margin
-                and every other element shares the title's left edge. */}
-            <div className="product__grid">
-              <span className="product__iconwrap">
-                <Image
-                  className="product__icon"
-                  src={product.icon}
-                  alt=""
-                  width={116}
-                  height={116}
-                />
+          <Image className="product__icon" src={product.icon} alt={`${product.name} icon`} width={104} height={104} />
+
+          <div className="product__tags">
+            {product.brand && (
+              <span className="card__oaisis" title={product.brand}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/oaisis-logo.png" alt={product.brand} />
               </span>
-
-              <div className="product__col">
-                <div className="product__tags">
-                  {product.brand && <span className="chip chip--brand">{product.brand}</span>}
-                  <span className="chip">{product.platform}</span>
-                </div>
-
-                <h1 className="product__name">{product.name}</h1>
-                <p className="product__tagline">{product.tagline}</p>
-                {product.lead && <p className="product__lead">{product.lead}</p>}
-
-                <div className="product__cta">
-                  <Cta product={product} />
-                </div>
-
-                {shots.length > 0 && (
-                  <section className={`shots ${phone ? "shots--phone" : "shots--wide"}`} aria-label="Screenshots">
-                    <div className="shots__rail">
-                      {shots.map((src, i) => (
-                        <Reveal key={src} delay={i * 80}>
-                          <figure className="shot">
-                            <Image
-                              src={src}
-                              alt={`${product.name} screenshot ${i + 1}`}
-                              width={phone ? 420 : 1100}
-                              height={phone ? 910 : 773}
-                              sizes={phone ? "(max-width: 700px) 60vw, 260px" : "(max-width: 900px) 92vw, 860px"}
-                            />
-                          </figure>
-                        </Reveal>
-                      ))}
-                    </div>
-                  </section>
-                )}
-
-                {product.sections && product.sections.length > 0 && (
-                  <section className="article">
-                    {product.sections.map((s, i) => (
-                      <Reveal key={s.title} delay={i * 60}>
-                        <div className="article__block">
-                          <h2>{s.title}</h2>
-                          <p>{s.body}</p>
-                        </div>
-                      </Reveal>
-                    ))}
-                  </section>
-                )}
-
-                {product.caveat && (
-                  <Reveal>
-                    <aside className="note">
-                      <span className="label note__label">Note</span>
-                      <p>{product.caveat}</p>
-                    </aside>
-                  </Reveal>
-                )}
-
-                {product.facts && product.facts.length > 0 && (
-                  <section className="facts">
-                    <dl className="facts__grid">
-                      {product.facts.map((f) => (
-                        <div className="fact" key={f.label}>
-                          <dt>{f.label}</dt>
-                          <dd>{f.value}</dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </section>
-                )}
-
-                <div className="tail">
-                  <Cta product={product} />
-                  {product.legal && (
-                    <p className="tail__legal">
-                      <Link href={product.legal.terms}>Terms</Link>
-                      <Link href={product.legal.privacy}>Privacy</Link>
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
+            )}
+            <span className="card__platform">{product.platform}</span>
           </div>
+
+          <h1 className="product__name">{product.name}</h1>
+          <p className="product__tagline">{product.tagline}</p>
+          {product.lead && <p className="product__lead">{product.lead}</p>}
+
+          <div className="product__cta">
+            <Cta product={product} />
+          </div>
+        </section>
+
+        {shots.length > 0 && (
+          <section className={`shots ${phone ? "shots--phone" : "shots--wide"}`} aria-label="Screenshots">
+            <div className="shots__rail">
+              {shots.map((src, i) => (
+                <figure className="shot" key={src}>
+                  <Image
+                    src={src}
+                    alt={`${product.name} screenshot ${i + 1}`}
+                    width={phone ? 420 : 1100}
+                    height={phone ? 910 : 773}
+                    sizes={phone ? "(max-width: 700px) 60vw, 260px" : "(max-width: 900px) 92vw, 820px"}
+                  />
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {product.sections && product.sections.length > 0 && (
+          <section className="article">
+            {product.sections.map((s) => (
+              <div className="article__block" key={s.title}>
+                <h2>{s.title}</h2>
+                <p>{s.body}</p>
+              </div>
+            ))}
+          </section>
+        )}
+
+        {product.caveat && (
+          <section className="article">
+            <p className="product__caveat">{product.caveat}</p>
+          </section>
+        )}
+
+        {product.facts && product.facts.length > 0 && (
+          <section className="facts">
+            <dl className="facts__grid">
+              {product.facts.map((f) => (
+                <div className="fact" key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
+
+        <section className="product product--tail">
+          <div className="product__cta">
+            <Cta product={product} />
+          </div>
+          {product.legal && (
+            <p className="product__legal">
+              <Link href={product.legal.terms}>Terms of Service</Link>
+              <span aria-hidden="true"> · </span>
+              <Link href={product.legal.privacy}>Privacy Policy</Link>
+            </p>
+          )}
         </section>
       </main>
       <Footer />

@@ -1,4 +1,4 @@
-import Field from "@/components/Field";
+import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
-      <Field />
+      <Background />
       <Navbar />
       <main>
         <Hero />
