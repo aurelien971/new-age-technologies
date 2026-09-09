@@ -260,6 +260,58 @@ export const products: Product[] = [
       "Every time the app shows is a calculation from the sun's position, not a halachic ruling \u2014 communities differ by a minute or two, and some by more. Where it matters, follow your own community.",
   },
   {
+    id: "ihya",
+    name: "Ihya",
+    tagline: "Bringing it back to life.",
+    description: "Prayer times, Qibla, and a log that counts return rather than perfection.",
+    platform: "iOS",
+    icon: "/icon-ihya.png",
+    page: "/ihya",
+    accent: "62, 158, 130",
+    cta: { type: "soon" },
+    legal: { terms: "/ihya/terms", privacy: "/ihya/privacy" },
+    shotKind: "phone",
+    lead:
+      "Prayer times computed on your phone from where you actually are, the Qibla corrected for true north, and a log that stays alive whether you answer prayed, late or missed. Only silence breaks it.",
+    sections: [
+      {
+        title: "The streak counts return, not perfection",
+        body:
+          "Prayed, late and missed all keep it running — the only thing that breaks a streak is saying nothing at all. Every other app in this category rewards the perfect week and quietly punishes the honest one, which is how people end up deleting it in the second month. Despair is the heavier problem here, not laxity, so the app is built to make the true answer the easy one.",
+      },
+      {
+        title: "You will never pay to know when to pray",
+        body:
+          "Prayer times, the adhan reminders, the Qibla, the Hijri calendar and the log are free forever, subscription or not, and none of it needs an account. A prayer has a window that closes; putting the time of it behind a card is not a business model we are willing to run.",
+      },
+      {
+        title: "It asks where you are, once, and there is no wrong answer",
+        body:
+          "I pray all five. Some days, not others. Mostly just Jumu’ah. I’ve stopped. I’m still learning how. I’m new to Islam. Whichever you pick, the app answers before it asks you for anything — and then builds a thirty-day path around the prayer you named as hardest and the thing that actually gets in the way, whether that is sleep, the phone, or feeling like a hypocrite for being here at all.",
+      },
+      {
+        title: "The words, at the pace of a voice",
+        body:
+          "Al-Fatiha and the fixed adhkar of the prayer, each with the Arabic, the sounds and the meaning, lit one word at a time so you can say it back. There is a walkthrough of a single rak’ah for anyone who was shown once and never again. Reciter audio will be a licensed recording when it arrives, never a synthesised voice.",
+      },
+      {
+        title: "Where the schools differ, it says so",
+        body:
+          "Thirteen calculation methods, both Asr conventions, four rules for latitudes where Fajr and Isha do not properly occur — and the app tells you when it has had to fall back on one. Observances kept by some and considered an innovation by others are marked as disputed rather than presented as settled. Offering a setting is not taking a side.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17 or later" },
+      { label: "Price", value: "Free, with an optional subscription" },
+      { label: "Times", value: "Calculated on your device" },
+      { label: "Methods", value: "13, including Ja’fari" },
+      { label: "Your prayer log", value: "Never leaves your phone" },
+      { label: "Languages", value: "English, with the prayers in Arabic" },
+    ],
+    caveat:
+      "Every time the app shows is an astronomical calculation, not a ruling — conventions differ, and so does the mosque down the road. Where it matters, follow your local authority. Nothing in the app is a fatwa, and it will never tell you whether a prayer was valid.",
+  },
+  {
     id: "faike",
     name: "FAIKE",
     tagline: "AI Detector.",

@@ -12,8 +12,8 @@ export default function Page() {
     <LegalPage
       title="Privacy Policy"
       effectiveDate="September 9, 2026"
-      backHref="/"
-      backLabel="Back to New Age Technologies"
+      backHref="/ihya"
+      backLabel="Back to Ihya"
     >
       <h2>1. The Short Version</h2>
       <p>
