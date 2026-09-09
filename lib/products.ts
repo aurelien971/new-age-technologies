@@ -156,6 +156,58 @@ export const products: Product[] = [
       "Surrender is a devotional habit, not therapy, medical treatment or pastoral care. If you are in crisis, please contact a doctor or a crisis line rather than an app.",
   },
   {
+    id: "hineni",
+    name: "Hineni",
+    tagline: "Here I am.",
+    description: "Daily Jewish practice, for anyone who thinks the door has closed.",
+    platform: "iOS",
+    icon: "/icon-hineni.png",
+    page: "/hineni",
+    accent: "79, 131, 218",
+    cta: { type: "soon" },
+    legal: { terms: "/hineni/terms", privacy: "/hineni/privacy" },
+    shotKind: "phone",
+    lead:
+      "Candle lighting to the minute where you actually are, the words with the sounds written under them, and one honest question a day. Built for the people every other Jewish app assumes can already read the page.",
+    sections: [
+      {
+        title: "You were never out",
+        body:
+          "Teshuvah does not mean repentance \u2014 it means return, and you cannot return somewhere you were never from. Halachically there is no lapsed category: a Jew who has done nothing for forty years is exactly as obligated as one who has davened three times a day for forty. Almost nobody who needs to know that has been told it, so it is the first thing the app says.",
+      },
+      {
+        title: "Never handed a page you cannot read",
+        body:
+          "Every prayer shows the Hebrew, the sounds and the English at the same time, and reads itself to you one line at a time \u2014 slowly, waiting, so you can say it back. Nothing auto-advances. The whole category is reference tools for people who already know; this is the on-ramp for everyone else.",
+      },
+      {
+        title: "You will never pay to know when Shabbat starts",
+        body:
+          "Candle lighting, every prayer time, the festival calendar and the daily check-in are free forever, subscription or not. A time-bound obligation is not a thing to put behind a card. Times are computed on your phone from the sun at your coordinates, which never leave the device.",
+      },
+      {
+        title: "And on Shabbat, nothing at all",
+        body:
+          "From candle lighting until three stars the app is silent \u2014 no reminder, no counting, no streak to lose. Sending a push into Shabbat is not a tone problem; for an observant user it is causing a problem. It is the one thing an engagement-funded app could never do.",
+      },
+      {
+        title: "Ten steps, in your hands",
+        body:
+          "Most men who own tefillin were shown once, at thirteen, by someone who assumed they would remember. The guide never says \u201cas you know\u201d, counts the seven wraps for you, and refuses to run on the days tefillin are not worn.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17 or later" },
+      { label: "Price", value: "Free, with an optional subscription" },
+      { label: "Times", value: "Calculated on your device" },
+      { label: "Nusach", value: "Ashkenaz" },
+      { label: "Your location", value: "Never leaves your phone" },
+      { label: "Languages", value: "English and Hebrew" },
+    ],
+    caveat:
+      "Every time the app shows is a calculation from the sun's position, not a halachic ruling \u2014 communities differ by a minute or two, and some by more. Where it matters, follow your own community.",
+  },
+  {
     id: "faike",
     name: "FAIKE",
     tagline: "AI Detector.",
