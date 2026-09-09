@@ -7,12 +7,14 @@ export default function Navbar() {
         <Link className="nav__brand" href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className="nav__mark" src="/nat-icon.png" alt="" />
-          New Age Technologies
+          <span>New Age Technologies</span>
         </Link>
         <nav className="nav__links">
           <Link href="/#work">Work</Link>
           <Link href="/#studio" data-secondary>Studio</Link>
-          <a href="mailto:fefeapphello@gmail.com">Contact</a>
+          <a className="nav__cta" href="mailto:fefeapphello@gmail.com">
+            Get in touch
+          </a>
         </nav>
       </div>
     </header>

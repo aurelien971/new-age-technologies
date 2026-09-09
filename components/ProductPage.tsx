@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Field from "@/components/Field";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
 import { products, type Product } from "@/lib/products";
 
 function AppleMark() {
@@ -32,7 +34,7 @@ function Cta({ product }: { product: Product }) {
       </a>
     );
   }
-  return <span className="btn btn--soon">Coming soon</span>;
+  return <span className="btn btn--ghost">Coming soon</span>;
 }
 
 export default function ProductPage({ id }: { id: string }) {
@@ -44,6 +46,7 @@ export default function ProductPage({ id }: { id: string }) {
 
   return (
     <>
+      <Field />
       <Navbar />
       <main>
         <section className="product">
@@ -55,18 +58,20 @@ export default function ProductPage({ id }: { id: string }) {
             {/* One grid for the whole page: the icon hangs in the left margin
                 and every other element shares the title's left edge. */}
             <div className="product__grid">
-              <Image
-                className="product__icon"
-                src={product.icon}
-                alt=""
-                width={112}
-                height={112}
-              />
+              <span className="product__iconwrap">
+                <Image
+                  className="product__icon"
+                  src={product.icon}
+                  alt=""
+                  width={116}
+                  height={116}
+                />
+              </span>
 
               <div className="product__col">
-                <div className="product__tags label">
-                  {product.brand && <span>{product.brand}</span>}
-                  <span className="label--cased">{product.platform}</span>
+                <div className="product__tags">
+                  {product.brand && <span className="chip chip--brand">{product.brand}</span>}
+                  <span className="chip">{product.platform}</span>
                 </div>
 
                 <h1 className="product__name">{product.name}</h1>
@@ -81,15 +86,17 @@ export default function ProductPage({ id }: { id: string }) {
                   <section className={`shots ${phone ? "shots--phone" : "shots--wide"}`} aria-label="Screenshots">
                     <div className="shots__rail">
                       {shots.map((src, i) => (
-                        <figure className="shot" key={src}>
-                          <Image
-                            src={src}
-                            alt={`${product.name} screenshot ${i + 1}`}
-                            width={phone ? 420 : 1100}
-                            height={phone ? 910 : 773}
-                            sizes={phone ? "(max-width: 700px) 60vw, 260px" : "(max-width: 900px) 92vw, 880px"}
-                          />
-                        </figure>
+                        <Reveal key={src} delay={i * 80}>
+                          <figure className="shot">
+                            <Image
+                              src={src}
+                              alt={`${product.name} screenshot ${i + 1}`}
+                              width={phone ? 420 : 1100}
+                              height={phone ? 910 : 773}
+                              sizes={phone ? "(max-width: 700px) 60vw, 260px" : "(max-width: 900px) 92vw, 860px"}
+                            />
+                          </figure>
+                        </Reveal>
                       ))}
                     </div>
                   </section>
@@ -97,20 +104,24 @@ export default function ProductPage({ id }: { id: string }) {
 
                 {product.sections && product.sections.length > 0 && (
                   <section className="article">
-                    {product.sections.map((s) => (
-                      <div className="article__block" key={s.title}>
-                        <h2>{s.title}</h2>
-                        <p>{s.body}</p>
-                      </div>
+                    {product.sections.map((s, i) => (
+                      <Reveal key={s.title} delay={i * 60}>
+                        <div className="article__block">
+                          <h2>{s.title}</h2>
+                          <p>{s.body}</p>
+                        </div>
+                      </Reveal>
                     ))}
                   </section>
                 )}
 
                 {product.caveat && (
-                  <aside className="note">
-                    <span className="label note__label">Note</span>
-                    <p>{product.caveat}</p>
-                  </aside>
+                  <Reveal>
+                    <aside className="note">
+                      <span className="label note__label">Note</span>
+                      <p>{product.caveat}</p>
+                    </aside>
+                  </Reveal>
                 )}
 
                 {product.facts && product.facts.length > 0 && (

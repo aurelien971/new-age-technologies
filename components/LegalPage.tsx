@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Field from "@/components/Field";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -17,6 +18,7 @@ export default function LegalPage({
 }) {
   return (
     <>
+      <Field />
       <Navbar />
       <main>
         <div className="wrap">
