@@ -110,6 +110,58 @@ export const products: Product[] = [
     ],
   },
   {
+    id: "complainr",
+    name: "Complainr",
+    tagline: "Every complaint, duly noted.",
+    description: "A quiet record of what your partner actually keeps asking for.",
+    platform: "iOS",
+    icon: "/icon-complainr.png",
+    page: "/complainr",
+    accent: "232, 232, 232",
+    cta: { type: "soon" },
+    legal: { terms: "/complainr/terms", privacy: "/complainr/privacy" },
+    shots: [
+      "/shots/complainr/1.png",
+      "/shots/complainr/2.png",
+      "/shots/complainr/3.png",
+      "/shots/complainr/4.png",
+    ],
+    shotKind: "phone",
+    lead:
+      "Register a complaint in about four seconds \u2014 type it, say it, or screenshot it \u2014 and let the pattern show up on its own. One row per complaint, marked with how many times it has now been made.",
+    sections: [
+      {
+        title: "Four seconds, then back to nodding",
+        body:
+          "The button sits at the bottom of every screen, so logging is never more than one tap from wherever you are. The entry saves instantly and files itself a beat later, which means registering never waits on a network. Said the same thing again? Swipe the row left and it is logged again, timed now.",
+      },
+      {
+        title: "What they are actually asking for",
+        body:
+          "Every complaint is read back as the request underneath it. \u201cThe dishes. Again.\u201d becomes reset the kitchen before bed. That is the whole thesis: complaints are unmet requests with bad PR, and the useful version of a record is the one that tells you what to do about it.",
+      },
+      {
+        title: "Green days, amber days, red days",
+        body:
+          "A month at a glance, alongside complaints per day, week against last week, and what they were mostly about. The categories are not ours \u2014 they come out of your own entries, so the vocabulary ends up native to your relationship rather than imposed by us.",
+      },
+      {
+        title: "Advice that takes your side",
+        body:
+          "Most relationship tools read like your partner\u2019s advocate. This one opens by naming what genuinely is not your fault, and only then points at the one thread worth your attention. If a complaint is unreasonable, it says so rather than inventing a fix for it.",
+      },
+    ],
+    facts: [
+      { label: "Platform", value: "iOS 17 or later" },
+      { label: "Price", value: "Free, with an optional subscription" },
+      { label: "Capture", value: "Typing, voice or screenshot" },
+      { label: "Cycle tracking", value: "Optional, and never leaves your device" },
+      { label: "Languages", value: "English" },
+    ],
+    caveat:
+      "Complainr is a private log of your own experience, not a tool for monitoring another person. It keeps no location, reads no messages and needs nothing from your partner\u2019s phone.",
+  },
+  {
     id: "surrender",
     name: "Surrender",
     tagline: "Daily walk with Jesus.",
